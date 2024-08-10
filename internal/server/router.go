@@ -1,0 +1,11 @@
+package server
+
+import (
+	"demo/internal/handler/health"
+)
+
+// SetupRouter 初始化gin入口，路由信息
+func (s *Server) SetupRouter() {
+	// 客户端通过变量进行传递
+	s.Gin.GET("/health", health.HealthHandler(s.Config, s.DB))
+}
